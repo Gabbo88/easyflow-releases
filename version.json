@@ -1,0 +1,9 @@
+{
+  "version": "1.0.1",
+  "build": 2,
+  "releaseDate": "2026-09-14",
+  "title": "Architettura Ibrida AI & Fix Notifiche",
+  "releaseNotes": "• Riconoscimento intelligente delle notifiche con Gemini AI Structured Output\n• Smart deduplication pagamenti Wallet + Carta\n• Supporto a schermo intero per barra a 3 pulsanti di navigazione",
+  "downloadUrl": "https://github.com/<TUO-USERNAME>/easyflow-releases/releases/download/v1.0.1/com.easyflow.app-Signed.apk",
+  "isMandatory": false
+}
