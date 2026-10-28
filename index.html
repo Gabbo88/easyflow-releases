@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="meta.title">EasyFlow – Le tue spese, registrate da sole</title>
+<meta name="description" content="EasyFlow legge le notifiche di banca e wallet, registra le spese e ti dice quanto puoi spendere oggi. Dati sul tuo telefono, app gratuita per Android, Windows, Mac e iPhone." data-i18n-content="meta.desc">
+<meta name="theme-color" content="#0b0f19">
+<meta property="og:type" content="website">
+<meta property="og:title" content="EasyFlow – Le tue spese, registrate da sole" data-i18n-content="meta.title">
+<meta property="og:description" content="EasyFlow legge le notifiche di banca e wallet, registra le spese e ti dice quanto puoi spendere oggi. Dati sul tuo telefono, app gratuita per Android, Windows, Mac e iPhone." data-i18n-content="meta.desc">
+<link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/icon-512.png">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="stylesheet" href="styles.css">
+<script>
+/* Tema e lingua si applicano subito, prima del disegno della pagina, per evitare lampi */
+(function () {
+  try {
+    var t = localStorage.getItem('ef-theme');
+    if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    document.documentElement.classList.add('js');
+  } catch (e) {}
+})();
+</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="ic-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" /> <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" /></symbol><symbol id="ic-coins" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6" /> <path d="M18.09 10.37A6 6 0 1 1 10.34 18" /> <path d="M7 6h1v4" /> <path d="m16.71 13.88.7.71-2.82 2.82" /></symbol><symbol id="ic-receipt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2v19l2.5-1.2L9 21l2.5-1.2 1.5.7V2l-2.5 1.2L8 2 5.5 3.2 4 2Z" /> <path d="M7 6h4" /> <path d="M7 10h4" /> <path d="M7 14h2" /> <path d="m19 11 1 2.5 2.5 1-2.5 1-1 2.5-1-2.5-2.5-1 2.5-1 1-2.5Z" fill="currentColor" fill-opacity="0.28" /> <path d="m14 18 .6 1.4 1.4.6-1.4.6-.6 1.4-.6-1.4-1.4-.6 1.4-.6.6-1.4Z" fill="currentColor" fill-opacity="0.28" /></symbol><symbol id="ic-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2" /> <path d="M7 11V7a5 5 0 0 1 10 0v4" /></symbol><symbol id="ic-cloud" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></symbol><symbol id="ic-sparkles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" /> <path d="M5 3v4" /> <path d="M19 17v4" /> <path d="M3 5h4" /> <path d="M17 19h4" /></symbol><symbol id="ic-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4" /> <path d="m21 2-9.6 9.6" /> <circle cx="7.5" cy="15.5" r="5.5" /></symbol><symbol id="ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2" /> <path d="M12 18h.01" /></symbol><symbol id="ic-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /> <polyline points="9 12 11 14 15 10" /></symbol><symbol id="ic-eyeoff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24" /> <path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68" /> <path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61" /> <line x1="2" y1="2" x2="22" y2="22" /></symbol><symbol id="ic-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /> <polyline points="7 10 12 15 17 10" /> <line x1="12" y1="15" x2="12" y2="3" /></symbol><symbol id="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4" /> <path d="M12 2v2" /> <path d="M12 20v2" /> <path d="m4.93 4.93 1.41 1.41" /> <path d="m17.66 17.66 1.41 1.41" /> <path d="M2 12h2" /> <path d="M20 12h2" /> <path d="m6.34 17.66-1.41 1.41" /> <path d="m19.07 4.93-1.41 1.41" /></symbol><symbol id="ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></symbol><symbol id="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line> <line x1="6" y1="6" x2="18" y2="18"></line></symbol><symbol id="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" /></symbol><symbol id="ic-fingerprint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4" /> <path d="M14 13.12c0 2.38 0 6.38-1 8.88" /> <path d="M17.29 21.02c.12-.6.43-2.3.5-3.02" /> <path d="M2 12a10 10 0 0 1 18-6" /> <path d="M2 16h.01" /> <path d="M21.8 16c.2-2 .131-5.354 0-6" /> <path d="M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2" /> <path d="M8.65 22c.21-.66.45-1.32.57-2" /> <path d="M9 6.8a6 6 0 0 1 9 5.2v2" /></symbol><symbol id="ic-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></symbol><symbol id="ic-train" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3.1V7a4 4 0 0 0 8 0V3.1"/><path d="m9 15-1-1"/><path d="m15 15 1-1"/><path d="M9 19c-2.8 0-5-2.2-5-5v-4a8 8 0 0 1 16 0v4c0 2.8-2.2 5-5 5Z"/><path d="m8 19-2 3"/><path d="m16 19 2 3"/></symbol><symbol id="ic-coffee" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v2"/><path d="M14 2v2"/><path d="M6 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/></symbol><symbol id="ic-apple" viewBox="0 0 24 24" fill="currentColor"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></symbol><symbol id="ic-android" viewBox="0 0 24 24" fill="currentColor"><path d="M18.4395 5.5586c-.675 1.1664-1.352 2.3318-2.0274 3.498-.0366-.0155-.0742-.0286-.1113-.043-1.8249-.6957-3.484-.8-4.42-.787-1.8551.0185-3.3544.4643-4.2597.8203-.084-.1494-1.7526-3.021-2.0215-3.4864a1.1451 1.1451 0 0 0-.1406-.1914c-.3312-.364-.9054-.4859-1.379-.203-.475.282-.7136.9361-.3886 1.5019 1.9466 3.3696-.0966-.2158 1.9473 3.3593.0172.031-.4946.2642-1.3926 1.0177C2.8987 12.176.452 14.772 0 18.9902h24c-.119-1.1108-.3686-2.099-.7461-3.0683-.7438-1.9118-1.8435-3.2928-2.7402-4.1836a12.1048 12.1048 0 0 0-2.1309-1.6875c.6594-1.122 1.312-2.2559 1.9649-3.3848.2077-.3615.1886-.7956-.0079-1.1191a1.1001 1.1001 0 0 0-.8515-.5332c-.5225-.0536-.9392.3128-1.0488.5449zm-.0391 8.461c.3944.5926.324 1.3306-.1563 1.6503-.4799.3197-1.188.0985-1.582-.4941-.3944-.5927-.324-1.3307.1563-1.6504.4727-.315 1.1812-.1086 1.582.4941zM7.207 13.5273c.4803.3197.5506 1.0577.1563 1.6504-.394.5926-1.1038.8138-1.584.4941-.48-.3197-.5503-1.0577-.1563-1.6504.4008-.6021 1.1087-.8106 1.584-.4941z"/></symbol><symbol id="ic-windows11" viewBox="0 0 24 24" fill="currentColor"><path d="M0,0H11.377V11.372H0ZM12.623,0H24V11.372H12.623ZM0,12.623H11.377V24H0Zm12.623,0H24V24H12.623"/></symbol></defs></svg>
+<div class="orb o1" aria-hidden="true"></div><div class="orb o2" aria-hidden="true"></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<a class="skip" href="#main" data-i18n="skip">Vai al contenuto</a>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="assets/icon.svg" alt="" width="34" height="34">EasyFlow</a>
+    <nav class="links" data-i18n-aria="nav.sections" aria-label="Sezioni">
+      <a href="#funzioni" data-i18n="nav.features">Funzioni</a><a href="#ai" data-i18n="nav.ai">AI</a><a href="#confronto" data-i18n="nav.compare">Confronto</a><a href="#download" data-i18n="nav.download">Download</a><a href="#guida" data-i18n="nav.guide">Guida</a><a href="#privacy" data-i18n="nav.privacy">Privacy</a>
+    </nav>
+    <div class="nav-tools">
+      <button type="button" class="chip" id="lang-btn" data-i18n-aria="nav.lang" aria-label="Cambia lingua"><span id="lang-label">IT · EN</span></button>
+      <button type="button" class="chip" id="theme-btn" data-i18n-aria="nav.theme" aria-label="Cambia tema"><svg class="ic" aria-hidden="true"><use href="#ic-moon"/></svg></button>
+      <a class="btn btn-primary" href="#download" data-i18n="nav.get">Scarica</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap" id="top">
+
+  <div class="hero">
+    <div>
+      <span class="eyebrow" data-i18n="hero.eyebrow">● Spese in automatico</span>
+      <h1 data-i18n-html="hero.h1">Le tue spese, <em>registrate da sole</em>.</h1>
+      <p class="lead" data-i18n="hero.lead">EasyFlow legge le notifiche della tua banca e del tuo wallet e ti dice quanto puoi spendere oggi. I dati restano sul tuo telefono, e quando una notifica non è chiara decidi tu.</p>
+      <div class="cta">
+        <a class="btn btn-primary" id="hero-android" href="https://github.com/Gabbo88/easyflow-releases/releases/latest"><svg class="ic" aria-hidden="true"><use href="#ic-android"/></svg> <span data-i18n="hero.android">Scarica per Android</span></a>
+        <a class="btn btn-ghost" href="#download"><svg class="ic" aria-hidden="true"><use href="#ic-windows11"/></svg> <svg class="ic" aria-hidden="true"><use href="#ic-apple"/></svg> <span data-i18n="hero.others">Altre piattaforme</span></a>
+      </div>
+      <div class="meta"><span><span data-i18n="hero.version">Versione</span> <b id="hero-version">4.1.1</b></span><span data-i18n="hero.free">Gratis</span><span data-i18n="hero.langs">Italiano e inglese</span><span data-i18n="hero.themes">Tema chiaro e scuro</span></div>
+    </div>
+    <div class="stage">
+      <div class="phone" aria-hidden="true">
+        <div class="screen">
+          <div class="s-notif" aria-hidden="true"><svg class="ic"><use href="#ic-bell"/></svg><div><b data-i18n="phone.notif.t">Nuovo movimento rilevato</b><small data-i18n="phone.notif.d">Supermercato · € 23,10</small></div></div>
+          <div class="s-top"><span>EasyFlow</span><span>● ●</span></div>
+          <div class="s-card">
+            <small data-i18n="phone.spendable">Spendibile oggi</small>
+            <strong id="count-up" data-value="28.40">€ 28,40</strong>
+            <div class="s-row">
+              <div class="s-pill up"><span data-i18n="phone.income">Entrate</span><b>+ € 1.250</b></div>
+              <div class="s-pill down"><span data-i18n="phone.expenses">Uscite</span><b>− € 612</b></div>
+            </div>
+          </div>
+          <div class="s-review" data-i18n="phone.review">1 movimento da rivedere · Rivedi ›</div>
+          <div class="s-list">
+            <div class="s-item new"><div class="s-ico"><svg class="ic"><use href="#ic-cart"/></svg></div><span><span data-i18n="phone.groceries">Supermercato</span><br><small class="s-sub" data-i18n="phone.groceries.cat">Spesa</small></span><b>− € 23,10</b></div>
+            <div class="s-item"><div class="s-ico"><svg class="ic"><use href="#ic-train"/></svg></div><span><span data-i18n="phone.transport">Trasporti</span><br><small class="s-sub" data-i18n="phone.transport.cat">Mobilità</small></span><b>− € 4,50</b></div>
+            <div class="s-item"><div class="s-ico"><svg class="ic"><use href="#ic-coffee"/></svg></div><span><span data-i18n="phone.bar">Bar</span><br><small class="s-sub" data-i18n="phone.bar.cat">Ristoranti</small></span><b>− € 1,40</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="funzioni">
+    <h2 data-i18n="feat.h2">Quello che fa, senza giri di parole</h2>
+    <p class="sub" data-i18n="feat.sub">Funzioni pensate per chi vuole tenere sotto controllo le spese senza inserire tutto a mano.</p>
+    <div class="grid two three">
+      <div class="card"><div class="ico"><svg class="ic" aria-hidden="true"><use href="#ic-bell"/></svg></div><h3 data-i18n="feat.notif.t">Lettura delle notifiche</h3><p data-i18n="feat.notif.d">Importo ed esercente arrivano dalle notifiche di banche e wallet che scegli tu. Un piccolo modello addestrato da noi, che gira sul telefono, aiuta a riconoscere i casi meno chiari. Se non è sicuro, finisce in “Da rivedere”. Su iPhone i pagamenti arrivano dai Comandi Rapidi di Apple.</p></div>
+      <div class="card"><div class="ico"><svg class="ic" aria-hidden="true"><use href="#ic-coins"/></svg></div><h3 data-i18n="feat.spend.t">Spendibile oggi</h3><p data-i18n="feat.spend.d">Una cifra sola: quanto puoi spendere oggi tenendo conto di abbonamenti, scadenze e budget.</p></div>
+      <div class="card"><div class="ico"><svg class="ic" aria-hidden="true"><use href="#ic-receipt"/></svg></div><h3 data-i18n="feat.ocr.t">Scontrini con OCR</h3><p data-i18n="feat.ocr.d">Fotografi lo scontrino e l'app compila il movimento, unendolo a quello già rilevato.</p></div>
+      <div class="card"><div class="ico"><svg class="ic" aria-hidden="true"><use href="#ic-sparkles"/></svg></div><h3 data-i18n="feat.ai.t">AI facoltativa</h3><p data-i18n="feat.ai.d">Con la tua chiave API di Google (Gemini) ottieni consigli sulle spese e una lettura più precisa dei casi difficili.</p></div>
+      <div class="card"><div class="ico"><svg class="ic" aria-hidden="true"><use href="#ic-lock"/></svg></div><h3 data-i18n="feat.data.t">Dati tuoi</h3><p data-i18n="feat.data.d">Database cifrato sul dispositivo, blocco con impronta o volto, modalità privacy che nasconde gli importi.</p></div>
+      <div class="card"><div class="ico"><svg class="ic" aria-hidden="true"><use href="#ic-cloud"/></svg></div><h3 data-i18n="feat.sync.t">Sincronizzazione cifrata</h3><p data-i18n="feat.sync.d">Più dispositivi e spazio condiviso in famiglia, con chiavi che restano nelle tue mani.</p></div>
+    </div>
+  </section>
+
+  <section id="ai">
+    <div class="ai">
+      <div>
+        <div class="ico"><svg class="ic" aria-hidden="true"><use href="#ic-sparkles"/></svg></div>
+        <h2 data-i18n="ai.h2">AI facoltativa, con la tua chiave Google</h2>
+        <p class="sub" style="margin-bottom:0" data-i18n="ai.lead">Puoi usare l'assistente AI di EasyFlow con una tua chiave API di Google (Gemini). Se non la inserisci, l'app funziona lo stesso.</p>
+        <p class="fine" data-i18n="ai.fine">Con la chiave, i testi che scegli di far analizzare vanno a Google con la tua chiave e restano soggetti alle condizioni del tuo account Google. Il piano gratuito di Google AI Studio ha dei limiti: controlla le condizioni attuali.</p>
+      </div>
+      <div class="ai-steps">
+        <div class="ai-step"><svg class="ic" aria-hidden="true"><use href="#ic-key"/></svg><div><b data-i18n="ai.s1.t">1. Crea la chiave</b><span data-i18n="ai.s1.d">Nel sito di Google AI Studio, con il tuo account Google.</span></div></div>
+        <div class="ai-step"><svg class="ic" aria-hidden="true"><use href="#ic-phone"/></svg><div><b data-i18n="ai.s2.t">2. Incollala nelle Impostazioni</b><span data-i18n="ai.s2.d">La chiave resta nell'archivio protetto del dispositivo.</span></div></div>
+        <div class="ai-step"><svg class="ic" aria-hidden="true"><use href="#ic-sparkles"/></svg><div><b data-i18n="ai.s3.t">3. Chiedi, e basta</b><span data-i18n="ai.s3.d">Consigli sulle spese, scontrini difficili e notifiche poco chiare.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="confronto">
+    <h2 data-i18n="cmp.h2">EasyFlow in confronto</h2>
+    <p class="sub" data-i18n="cmp.sub">Come si differenzia dalle quattro strade più comuni per tenere i conti sotto controllo.</p>
+    <div class="table-wrap" tabindex="0">
+      <table>
+        <thead><tr><th data-i18n="cmp.col.feature">Funzione</th><th class="us" data-i18n="cmp.col.us">EasyFlow</th><th data-i18n="cmp.col.manual">Inserimento manuale</th><th data-i18n="cmp.col.linked">App collegate alla banca</th><th data-i18n="cmp.col.bank">App della tua banca</th></tr></thead>
+        <tbody>
+          <tr><td data-i18n="cmp.r1">Registra le spese da solo</td><td class="us yes"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-check"/></svg> <span data-i18n="cmp.r1.us">Dalle notifiche</span></span></td><td class="no"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-close"/></svg> <span data-i18n="cmp.r1.manual">No</span></span></td><td class="yes"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-check"/></svg> <span data-i18n="cmp.r1.linked">Dal conto</span></span></td><td class="yes"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-check"/></svg> <span data-i18n="cmp.r1.bank">Solo i suoi conti</span></span></td></tr>
+          <tr><td data-i18n="cmp.r2">Più banche e wallet insieme</td><td class="us yes"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-check"/></svg> <span data-i18n="cmp.r2.us">Sì</span></span></td><td class="yes"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-check"/></svg> <span data-i18n="cmp.r2.manual">Sì, a mano</span></span></td><td class="mid"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-check"/></svg> <span data-i18n="cmp.r2.linked">Se supportate</span></span></td><td class="no"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-close"/></svg> <span data-i18n="cmp.r2.bank">Solo una</span></span></td></tr>
+          <tr><td data-i18n="cmp.r3">Non serve dare accesso ai conti a terzi</td><td class="us yes"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-check"/></svg> <span data-i18n="cmp.r3.us">Sì</span></span></td><td class="yes"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-check"/></svg> <span data-i18n="cmp.r3.manual">Sì</span></span></td><td class="no"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-close"/></svg> <span data-i18n="cmp.r3.linked">Serve il consenso</span></span></td><td class="yes"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-check"/></svg> <span data-i18n="cmp.r3.bank">Sì</span></span></td></tr>
+          <tr><td data-i18n="cmp.r4">Dati sul tuo dispositivo</td><td class="us yes"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-check"/></svg> <span data-i18n="cmp.r4.us">Sì, cifrati</span></span></td><td class="mid"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-check"/></svg> <span data-i18n="cmp.r4.manual">Dipende</span></span></td><td class="no"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-close"/></svg> <span data-i18n="cmp.r4.linked">Di solito online</span></span></td><td class="no"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-close"/></svg> <span data-i18n="cmp.r4.bank">Sui server della banca</span></span></td></tr>
+          <tr><td data-i18n="cmp.r5">Senza registrazione</td><td class="us yes"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-check"/></svg> <span data-i18n="cmp.r5.us">Sì</span></span></td><td class="mid"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-check"/></svg> <span data-i18n="cmp.r5.manual">Dipende</span></span></td><td class="no"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-close"/></svg> <span data-i18n="cmp.r5.linked">Account richiesto</span></span></td><td class="no"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-close"/></svg> <span data-i18n="cmp.r5.bank">Serve essere clienti</span></span></td></tr>
+          <tr><td data-i18n="cmp.r6">Lettura degli scontrini</td><td class="us yes"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-check"/></svg> <span data-i18n="cmp.r6.us">Sì</span></span></td><td class="no"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-close"/></svg> <span data-i18n="cmp.r6.manual">Raramente</span></span></td><td class="mid"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-check"/></svg> <span data-i18n="cmp.r6.linked">Dipende</span></span></td><td class="no"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-close"/></svg> <span data-i18n="cmp.r6.bank">Raramente</span></span></td></tr>
+          <tr><td data-i18n="cmp.r7">AI con la tua chiave</td><td class="us yes"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-check"/></svg> <span data-i18n="cmp.r7.us">Facoltativa</span></span></td><td class="no"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-close"/></svg> <span data-i18n="cmp.r7.manual">No</span></span></td><td class="mid"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-check"/></svg> <span data-i18n="cmp.r7.linked">Dipende</span></span></td><td class="mid"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-check"/></svg> <span data-i18n="cmp.r7.bank">Dipende</span></span></td></tr>
+          <tr><td data-i18n="cmp.r8">Costo</td><td class="us yes"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-check"/></svg> <span data-i18n="cmp.r8.us">Gratis</span></span></td><td class="mid"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-check"/></svg> <span data-i18n="cmp.r8.manual">Varia</span></span></td><td class="mid"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-check"/></svg> <span data-i18n="cmp.r8.linked">Spesso a pagamento</span></span></td><td class="yes"><span class="cell"><svg class="ic" aria-hidden="true"><use href="#ic-check"/></svg> <span data-i18n="cmp.r8.bank">Incluso nel conto</span></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note" data-i18n="cmp.note">Indicazioni generali sulle categorie di app, non su prodotti specifici: le funzioni cambiano da app ad app.</p>
+  </section>
+
+  <section id="download">
+    <h2 data-i18n="dl.h2">Scarica EasyFlow</h2>
+    <p class="sub" data-i18n="dl.sub">Su Android l'app legge le notifiche da sola. Su iPhone i pagamenti arrivano dai Comandi Rapidi di Apple; su Windows e Mac si consultano e si inseriscono i movimenti.</p>
+    <div class="dl">
+      <div class="card dl-card primary" data-platform="android">
+        <div class="dl-head"><div class="ico logo"><svg class="ic" aria-hidden="true"><use href="#ic-android"/></svg></div><div><h3 style="margin:0" data-i18n="dl.android">Android</h3><small class="kind"><span data-i18n="dl.android.kind">APK</span><span class="size"></span></small></div><span class="badge" data-i18n="dl.badge.full">Completa</span></div>
+        <a class="btn btn-primary dl-link" href="https://github.com/Gabbo88/easyflow-releases/releases/latest"><svg class="ic" aria-hidden="true"><use href="#ic-download"/></svg> <span data-i18n="dl.getapk">Scarica APK</span></a>
+        <div class="sha"></div>
+      </div>
+      <div class="card dl-card" data-platform="windows">
+        <div class="dl-head"><div class="ico logo"><svg class="ic" aria-hidden="true"><use href="#ic-windows11"/></svg></div><div><h3 style="margin:0" data-i18n="dl.windows">Windows</h3><small class="kind"><span data-i18n="dl.windows.kind">Installer</span><span class="size"></span></small></div><span class="badge warn" data-i18n="dl.badge.unsigned">Non firmata</span></div>
+        <a class="btn btn-ghost dl-link" href="https://github.com/Gabbo88/easyflow-releases/releases/latest"><svg class="ic" aria-hidden="true"><use href="#ic-download"/></svg> <span data-i18n="dl.get">Scarica</span></a>
+        <div class="sha"></div>
+      </div>
+      <div class="card dl-card" data-platform="mac">
+        <div class="dl-head"><div class="ico logo"><svg class="ic" aria-hidden="true"><use href="#ic-apple"/></svg></div><div><h3 style="margin:0" data-i18n="dl.mac">Mac</h3><small class="kind"><span data-i18n="dl.mac.kind">App</span><span class="size"></span></small></div><span class="badge warn" data-i18n="dl.badge.exp">Sperimentale</span></div>
+        <a class="btn btn-ghost dl-link" href="https://github.com/Gabbo88/easyflow-releases/releases/latest"><svg class="ic" aria-hidden="true"><use href="#ic-download"/></svg> <span data-i18n="dl.get">Scarica</span></a>
+        <div class="sha"></div>
+      </div>
+      <div class="card dl-card" data-platform="ios">
+        <div class="dl-head"><div class="ico logo"><svg class="ic" aria-hidden="true"><use href="#ic-apple"/></svg></div><div><h3 style="margin:0" data-i18n="dl.iphone">iPhone</h3><small class="kind"><span data-i18n="dl.iphone.kind">IPA · Sideloadly</span><span class="size"></span></small></div><span class="badge warn" data-i18n="dl.badge.manual">Manuale</span></div>
+        <a class="btn btn-ghost dl-link" href="https://github.com/Gabbo88/easyflow-releases/releases/latest"><svg class="ic" aria-hidden="true"><use href="#ic-download"/></svg> <span data-i18n="dl.get">Scarica</span></a>
+        <div class="sha plain" data-i18n="dl.renew">Da rinnovare ogni 7 giorni con un Apple ID gratuito</div>
+      </div>
+    </div>
+    <p class="note"><span data-i18n="dl.verify">Per verificare il file: confronta il valore SHA-256 con quello del file scaricato.</span> <a class="text-link" id="all-releases" href="https://github.com/Gabbo88/easyflow-releases/releases" data-i18n="dl.allreleases">Tutte le versioni</a></p>
+    <details class="notes" id="release-notes" hidden>
+      <summary data-i18n="dl.notes">Novità di questa versione</summary>
+      <div id="release-notes-body" class="md"></div>
+    </details>
+  </section>
+
+  <section id="guida">
+    <h2 data-i18n="gd.h2">Come si installa</h2>
+    <p class="sub" data-i18n="gd.sub">Pochi passi per ogni dispositivo.</p>
+    <div class="tabs" role="tablist" data-i18n-aria="gd.tabs" aria-label="Sistema operativo">
+      <button type="button" class="tab on" role="tab" id="tab-android" aria-selected="true" aria-controls="panel-android" data-os="android"><svg class="ic" aria-hidden="true"><use href="#ic-android"/></svg> <span data-i18n="dl.android">Android</span></button>
+      <button type="button" class="tab" role="tab" id="tab-windows" aria-selected="false" aria-controls="panel-windows" data-os="windows" tabindex="-1"><svg class="ic" aria-hidden="true"><use href="#ic-windows11"/></svg> <span data-i18n="dl.windows">Windows</span></button>
+      <button type="button" class="tab" role="tab" id="tab-mac" aria-selected="false" aria-controls="panel-mac" data-os="mac" tabindex="-1"><svg class="ic" aria-hidden="true"><use href="#ic-apple"/></svg> <span data-i18n="dl.mac">Mac</span></button>
+      <button type="button" class="tab" role="tab" id="tab-ios" aria-selected="false" aria-controls="panel-ios" data-os="ios" tabindex="-1"><svg class="ic" aria-hidden="true"><use href="#ic-apple"/></svg> <span data-i18n="dl.iphone">iPhone</span></button>
+    </div>
+    <div class="steps panel" role="tabpanel" id="panel-android" aria-labelledby="tab-android" data-os="android"><div class="step"><div><b data-i18n="gd.a1.t">Scarica il file APK</b><span data-i18n-html="gd.a1.d">Dal pulsante qui sopra, direttamente dal telefono.</span></div></div><div class="step"><div><b data-i18n="gd.a2.t">Consenti l'installazione</b><span data-i18n-html="gd.a2.d">Android chiede il permesso per “installare app sconosciute” dal browser che hai usato. Concedilo, poi apri il file scaricato e tocca Installa. Se compare un avviso di Play Protect, scegli di installare comunque.</span></div></div><div class="step"><div><b data-i18n="gd.a3.t">Apri EasyFlow e concedi l'accesso alle notifiche</b><span data-i18n-html="gd.a3.d">Serve per leggere i pagamenti: scegli tu quali app monitorare.</span></div></div><div class="step"><div><b data-i18n="gd.a4.t">Gli aggiornamenti</b><span data-i18n-html="gd.a4.d">L'app controlla da sola se c'è una versione nuova e te lo segnala.</span></div></div></div>
+    <div class="steps panel" role="tabpanel" id="panel-windows" aria-labelledby="tab-windows" data-os="windows" hidden><div class="step"><div><b data-i18n="gd.w1.t">Scarica l'installer</b><span data-i18n-html="gd.w1.d">Un solo file, <code>EasyFlow-…-Windows-Setup.exe</code>, dal pulsante qui sopra. Contiene già tutto quello che serve: non devi installare altri programmi. Funziona su Windows 10 e 11 a 64 bit.</span></div></div><div class="step"><div><b data-i18n="gd.w2.t">Installa</b><span data-i18n-html="gd.w2.d">Apri il file e segui i passaggi: non servono permessi di amministratore. Se compare “Windows ha protetto il PC”, scegli “Ulteriori informazioni” e poi “Esegui comunque”: succede perché l'app non è ancora firmata.</span></div></div><div class="step"><div><b data-i18n="gd.w3.t">Apri EasyFlow</b><span data-i18n-html="gd.w3.d">La trovi nel menu Start, e sul desktop se hai scelto il collegamento. Per avere gli stessi movimenti del telefono attiva la sincronizzazione (Altro → Sincronizzazione e famiglia) oppure ripristina un backup.</span></div></div><div class="step"><div><b data-i18n="gd.w4.t">Cosa fa su Windows</b><span data-i18n-html="gd.w4.d">Consulti i movimenti, ne inserisci di nuovi e gestisci conti, obiettivi e patrimonio. La lettura automatica delle notifiche è solo su Android.</span></div></div><div class="step"><div><b data-i18n="gd.w5.t">Aggiornare o disinstallare</b><span data-i18n-html="gd.w5.d">Per aggiornare scarica la nuova versione e installala sopra quella vecchia: i tuoi dati restano. Per disinstallare: Impostazioni → App → EasyFlow.</span></div></div></div>
+    <div class="steps panel" role="tabpanel" id="panel-mac" aria-labelledby="tab-mac" data-os="mac" hidden><div class="step"><div><b data-i18n="gd.m1.t">Scarica e sposta in Applicazioni</b><span data-i18n-html="gd.m1.d">Decomprimi il file scaricato e trascina l'app nella cartella Applicazioni.</span></div></div><div class="step"><div><b data-i18n="gd.m2.t">Primo avvio</b><span data-i18n-html="gd.m2.d">Se macOS blocca l'app perché non è notarizzata, fai clic destro sull'app → “Apri”, oppure vai in Impostazioni di Sistema → Privacy e sicurezza e scegli “Apri comunque”.</span></div></div><div class="step"><div><b data-i18n="gd.m3.t">Versione sperimentale</b><span data-i18n-html="gd.m3.d">Su Mac l'app serve a consultare e inserire i movimenti, come su Windows. Non è ancora stata provata come le altre.</span></div></div></div>
+    <div class="steps panel" role="tabpanel" id="panel-ios" aria-labelledby="tab-ios" data-os="ios" hidden><div class="step"><div><b data-i18n="gd.i1.t">Prepara il computer</b><span data-i18n-html="gd.i1.d">Installa Sideloadly (sideloadly.io). Su Windows serve anche iTunes, nella versione scaricata dal sito di Apple.</span></div></div><div class="step"><div><b data-i18n="gd.i2.t">Collega l'iPhone e carica il file IPA</b><span data-i18n-html="gd.i2.d">Trascina il file .ipa in Sideloadly, inserisci un Apple ID (meglio uno creato solo per questo) e premi Start.</span></div></div><div class="step"><div><b data-i18n="gd.i3.t">Autorizza l'app sull'iPhone</b><span data-i18n-html="gd.i3.d">Impostazioni → Generali → VPN e gestione dispositivo: tocca il tuo Apple ID e scegli “Autorizza”. Su iOS 16 e successivi attiva anche Impostazioni → Privacy e sicurezza → Modalità sviluppatore.</span></div></div><div class="step"><div><b data-i18n="gd.i4.t">Registra i pagamenti con i Comandi Rapidi</b><span data-i18n-html="gd.i4.d">Su iPhone le notifiche delle altre app non si leggono direttamente: i pagamenti si passano a EasyFlow con l'app Comandi Rapidi di Apple. In EasyFlow, Altro → App monitorate, apri la guida per iPhone. In breve, crei un'automazione (per esempio su un pagamento con Apple Pay o su un SMS della banca) che apre EasyFlow con un link come <code>easyflow://pay?app=Satispay&amp;amount=5.00&amp;merchant=Bar</code> e il movimento viene registrato. Le automazioni disponibili dipendono dalla versione di iOS.</span></div></div><div class="step"><div><b data-i18n="gd.i5.t">Rinnovo ogni 7 giorni</b><span data-i18n-html="gd.i5.d">Con un Apple ID gratuito l'app scade dopo 7 giorni: riapri Sideloadly e reinstalla.</span></div></div></div>
+  </section>
+
+  <section id="privacy">
+    <h2 data-i18n="pv.h2">Privacy, in chiaro</h2>
+    <p class="sub" data-i18n="pv.sub">Quello che resta sul telefono e quello che esce solo se lo scegli tu.</p>
+    <div class="privacy">
+      <div class="card"><div class="ico"><svg class="ic" aria-hidden="true"><use href="#ic-phone"/></svg></div><h3 data-i18n="pv.dev.t">Sul dispositivo</h3><p data-i18n="pv.dev.d">Movimenti e conti stanno in un database cifrato sul tuo telefono.</p></div>
+      <div class="card"><div class="ico"><svg class="ic" aria-hidden="true"><use href="#ic-shield"/></svg></div><h3 data-i18n="pv.opt.t">Solo se scegli</h3><p data-i18n="pv.opt.d">Backup su Drive, sincronizzazione, AI e rapporti di errore sono facoltativi.</p></div>
+      <div class="card"><div class="ico"><svg class="ic" aria-hidden="true"><use href="#ic-eyeoff"/></svg></div><h3 data-i18n="pv.rep.t">Segnalazioni anonime</h3><p data-i18n="pv.rep.d">Il modello migliora di versione in versione. Se vuoi aiutarci, segnala le notifiche lette male: importi e nomi vengono nascosti prima dell'invio, e parte solo ciò che confermi tu.</p></div>
+    </div>
+    <p class="note" data-i18n-html="pv.errors"><b>Rapporti di errore.</b> Sono spenti finché non li attivi (nell'introduzione o in Impostazioni). Se li attivi, quando l'app si blocca invia un rapporto tecnico (versione, dispositivo, errore) al servizio Sentry, con server nell'Unione Europea. Non include i tuoi movimenti, i saldi o le password, e puoi disattivarli in qualsiasi momento.</p>
+    
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="row"><span><span data-i18n="ft.version">EasyFlow</span> <span id="ft-version">4.1.1</span></span><a href="https://github.com/Gabbo88/easyflow-releases/releases" data-i18n="ft.releases">Tutte le versioni</a><a href="mailto:segnalazioni.easyflow@gmail.com" data-i18n="ft.report">Segnalazioni: segnalazioni.easyflow@gmail.com</a></div>
+    <div data-i18n="ft.legal">© 2026 EasyFlow · App indipendente, non affiliata a banche, wallet o a Google. Android, Windows, Apple e Gemini sono marchi dei rispettivi proprietari.</div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
