@@ -118,7 +118,6 @@ tr:last-child td { border-bottom: 0; }
 .badge { margin-left: auto; font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: rgba(52,211,153,0.16); color: var(--accent-2); border: 1px solid rgba(52,211,153,0.3); white-space: nowrap; }
 .badge.warn { background: rgba(245,158,11,0.14); color: #f59e0b; border-color: rgba(245,158,11,0.35); }
 .sha { font-family: ui-monospace, Consolas, monospace; font-size: 0.72rem; color: var(--muted); word-break: break-all; }
-.dl-card.primary { border-color: rgba(56,189,248,0.4); background: linear-gradient(160deg, rgba(56,189,248,0.1), var(--surface)); }
 
 /* GUIDE */
 .steps { counter-reset: s; display: grid; gap: 12px; }
@@ -141,7 +140,6 @@ footer .row { display: flex; flex-wrap: wrap; gap: 8px 22px; }
   .links { display: flex; }
   .hero { padding: 64px 0 36px; }
   .grid.two, .grid.three { grid-template-columns: repeat(2, 1fr); }
-  .dl { grid-template-columns: repeat(2, 1fr); }
   .privacy { grid-template-columns: repeat(2, 1fr); }
   .phone { width: 300px; }
 }
@@ -150,7 +148,7 @@ footer .row { display: flex; flex-wrap: wrap; gap: 8px 22px; }
   .nav .btn { display: inline-flex; }
   .hero { grid-template-columns: 1.1fr 0.9fr; padding: 84px 0 56px; gap: 56px; }
   .grid.three { grid-template-columns: repeat(3, 1fr); }
-  .dl { grid-template-columns: 1.3fr 1fr 1fr 1fr; }
+  .dl { grid-template-columns: repeat(3, 1fr); }
   .privacy { grid-template-columns: repeat(3, 1fr); }
   .phone { width: 320px; transform: rotate(2deg); }
   section { padding-top: 76px; }
@@ -301,8 +299,6 @@ main, footer { position: relative; z-index: 1; }
   .btn-primary:hover { box-shadow: 0 14px 34px rgba(56, 189, 248, 0.42); filter: saturate(1.1); }
 }
 .btn:active:not(.soon) { transform: scale(0.98); }
-.dl-card.primary { animation: glow 4.5s ease-in-out infinite; }
-@keyframes glow { 0%, 100% { box-shadow: var(--shadow), 0 0 0 rgba(56, 189, 248, 0); } 50% { box-shadow: var(--shadow), 0 0 34px rgba(56, 189, 248, 0.22); } }
 
 /* guida: il pannello appare con una dissolvenza */
 .panel:not([hidden]) { animation: fade .35s ease both; }
@@ -316,5 +312,4 @@ main, footer { position: relative; z-index: 1; }
   .phone { animation: none; }
   .s-notif { display: none; }
   .s-item.new { animation: none; opacity: 1; }
-  .dl-card.primary { animation: none; }
 }
