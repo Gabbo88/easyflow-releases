@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="pp.meta.title">EasyFlow – Informativa sulla Privacy e Cancellazione Dati</title>
+<meta name="description" content="Informativa sulla privacy di EasyFlow: dati cifrati sul dispositivo, AI locale, Google Drive appdata facoltativo, eliminazione completa e revoca accessi." data-i18n-content="pp.meta.desc">
+<meta name="theme-color" content="#0b0f19">
+<link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/icon-512.png">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="stylesheet" href="styles.css">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem('ef-theme');
+    if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    document.documentElement.classList.add('js');
+  } catch (e) {}
+})();
+</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" /></symbol><symbol id="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" /></symbol></defs></svg>
+<div class="orb o1" aria-hidden="true"></div><div class="orb o2" aria-hidden="true"></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/icon.svg" alt="" width="34" height="34">EasyFlow</a>
+    <nav class="links" data-i18n-aria="nav.sections" aria-label="Sezioni">
+      <a href="#locale" data-i18n="pp.nav.local">Dati locali</a>
+      <a href="#notifiche" data-i18n="pp.nav.notif">Notifiche</a>
+      <a href="#drive" data-i18n="pp.nav.drive">Google Drive</a>
+      <a href="#data-deletion" data-i18n="pp.nav.deletion">Eliminazione dati</a>
+    </nav>
+    <div class="nav-tools">
+      <button type="button" class="chip" id="lang-btn" data-i18n-aria="nav.lang" aria-label="Cambia lingua"><span id="lang-label">IT · EN</span></button>
+      <button type="button" class="chip" id="theme-btn" data-i18n-aria="nav.theme" aria-label="Cambia tema"><svg class="ic" aria-hidden="true"><use href="#ic-moon"/></svg></button>
+      <a class="btn btn-primary" href="index.html" data-i18n="pp.back">Home</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <article class="legal-article">
+      <span class="eyebrow" data-i18n="pp.eyebrow">Privacy &amp; Sicurezza</span>
+      <h1 data-i18n="pp.h1">Informativa sulla Privacy e Cancellazione dei Dati</h1>
+      <p class="legal-meta" data-i18n="pp.meta.updated">Ultimo aggiornamento: Novembre 2026 · Titolare: Gabriele Sacco (EasyFlow) · Contatto: segnalazioni.easyflow@gmail.com</p>
+
+      <div class="legal-sections">
+        <section class="card legal-section" id="locale">
+          <h2 data-i18n="pp.s1.t">1. Architettura local-first e cifratura</h2>
+          <p data-i18n="pp.s1.p1">EasyFlow non richiede registrazione, non ha account proprietari e non dispone di server propri. Tutti i dati finanziari (movimenti, conti, saldi, categorie, budget, obiettivi, scadenze e allegati ricevuti/scontrini) risiedono localmente sul dispositivo dell'utente in un database SQLite cifrato tramite SQLCipher (AES-256) con chiave generata casualmente e custodita nell'archivio sicuro di sistema (Android Keystore / Apple Keychain).</p>
+          <p data-i18n="pp.s1.p2">Il backup automatico di sistema Android (Auto Backup / trasferimento D2D) è disabilitato esplicitamente affinché il database cifrato non lasci il dispositivo senza il controllo dell'utente.</p>
+        </section>
+
+        <section class="card legal-section" id="notifiche">
+          <h2 data-i18n="pp.s2.t">2. Accesso alle notifiche su Android (BIND_NOTIFICATION_LISTENER_SERVICE)</h2>
+          <p data-i18n="pp.s2.p1">Su Android l'utente può autorizzare in modo facoltativo l'accesso alle notifiche di sistema esclusivamente per rilevare automaticamente pagamenti e accrediti provenienti dalle app bancarie e dai wallet selezionati nelle impostazioni dell'app.</p>
+          <ul>
+            <li data-i18n="pp.s2.l1">Le notifiche delle app non selezionate vengono ignorate immediatamente in memoria.</li>
+            <li data-i18n="pp.s2.l2">L'estrazione di importo, esercente e valuta avviene al 100% sul dispositivo tramite regole locali e un piccolo modello neurale ONNX locale.</li>
+            <li data-i18n="pp.s2.l3">Nessun testo grezzo di notifica viene inviato a server di EasyFlow o di terze parti, salvo quando l'utente sceglie manualmente «Segnala notifica non riconosciuta» con importi e nomi già oscurati e preview modificabile prima dell'invio via email.</li>
+          </ul>
+        </section>
+
+        <section class="card legal-section" id="ai-locale">
+          <h2 data-i18n="pp.s3.t">3. Elaborazione AI e OCR 100% sul dispositivo</h2>
+          <p data-i18n="pp.s3.p1">La scansione OCR di scontrini e documenti fotografici avviene offline sul dispositivo (Google ML Kit on-device su Android, Apple Vision su iOS). L'eventuale assistente conversazionale locale utilizza modelli eseguiti direttamente sull'hardware del dispositivo (LiteRT/Gemma su Android o Apple Foundation Models su iOS). Nessun prompt o documento finanziario viene inviato a servizi AI esterni nel cloud.</p>
+        </section>
+
+        <section class="card legal-section" id="drive">
+          <h2 data-i18n="pp.s4.t">4. Google Drive Backup, Sincronizzazione e Google API Limited Use</h2>
+          <p data-i18n="pp.s4.p1">Il collegamento a Google Drive è totalmente facoltativo. Nelle versioni distribuite tramite Google Play Store e Apple App Store l'app richiede esclusivamente lo scope minimo necessario per l'archivio privato nascosto dell'app (<code>drive.appdata</code>), oltre al profilo email di visualizzazione dell'account collegato.</p>
+          <p data-i18n="pp.s4.p2">Tutti i pacchetti di backup e i nodi di sincronizzazione caricati su Google Drive sono cifrati autenticamente sul dispositivo (AES-GCM con chiave casuale custodita dall'utente) prima del trasferimento. Né EasyFlow né Google possono leggere il contenuto finanziario cifrato.</p>
+          <p data-i18n="pp.s4.p3">L'utilizzo delle informazioni ricevute dalle API di Google da parte di EasyFlow è conforme alle Norme sui dati utente dei servizi API Google, inclusi i requisiti di uso limitato (Limited Use).</p>
+        </section>
+
+        <section class="card legal-section" id="telemetria">
+          <h2 data-i18n="pp.s5.t">5. Diagnostica facoltativa degli errori (Sentry UE) e sito web</h2>
+          <p data-i18n="pp.s5.p1">L'invio automatico dei rapporti di arresto anomalo è spento per impostazione predefinita. Se attivato esplicitamente dall'utente nell'introduzione o nelle Impostazioni, invia esclusivamente dettagli tecnici (tipo eccezione, stack trace, versione app/OS) ai server Sentry situati nell'Unione Europea, previa rimozione di token, IBAN, email e importi numerici.</p>
+        </section>
+
+        <section class="card legal-section" id="data-deletion">
+          <h2 data-i18n="pp.s6.t">6. Eliminazione completa dei dati e revoca accessi</h2>
+          <p data-i18n="pp.s6.p1">Poiché EasyFlow non gestisce account o database sui propri server, ogni utente mantiene il pieno controllo sulla cancellazione dei dati:</p>
+          <ul>
+            <li data-i18n-html="pp.s6.l1"><strong>Cancellazione immediata dall'app:</strong> apri <em>Altro → I tuoi dati → Elimina tutti i dati locali</em>. L'operazione revoca eventuali token OAuth Google memorizzati, sovrascrive ed elimina in modo sicuro il database cifrato, le ricevute, i documenti salvati e tutte le preferenze sul dispositivo.</li>
+            <li data-i18n-html="pp.s6.l2"><strong>Eliminazione dei backup remoti su Google Drive:</strong> se avevi attivato il backup o la sincronizzazione su Drive, apri <a class="text-link" href="https://drive.google.com" target="_blank" rel="noopener noreferrer">drive.google.com</a> → Impostazioni → Gestisci app → EasyFlow → Opzioni → Elimina dati nascosti delle app, e revoca l'accesso dalle impostazioni di sicurezza dell'account Google.</li>
+            <li data-i18n-html="pp.s6.l3"><strong>Assistenza:</strong> per richieste su dati inviati volontariamente via email (es. segnalazioni), scrivi a <a class="text-link" href="mailto:segnalazioni.easyflow@gmail.com">segnalazioni.easyflow@gmail.com</a>.</li>
+          </ul>
+        </section>
+
+        <section class="card legal-section" id="disclaimer">
+          <h2 data-i18n="pp.s7.t">7. Esclusione di consulenza finanziaria</h2>
+          <p data-i18n="pp.s7.p1">EasyFlow è uno strumento informativo di bilancio personale. Non fornisce consulenza finanziaria, bancaria, fiscale o legale e non garantisce l'accuratezza delle previsioni future o delle conversioni valutarie. Le decisioni economiche restano sotto la piena responsabilità dell'utente.</p>
+        </section>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="row"><span data-i18n="ft.version">EasyFlow</span><a href="index.html" data-i18n="pp.back">Home</a><a href="https://github.com/Gabbo88/easyflow-releases/releases" data-i18n="ft.releases">Tutte le versioni</a><a href="mailto:segnalazioni.easyflow@gmail.com" data-i18n="ft.report">Segnalazioni: segnalazioni.easyflow@gmail.com</a></div>
+    <div data-i18n="ft.legal">© 2026 EasyFlow · App indipendente, non affiliata a banche, wallet o a Google. Android, Windows e Apple sono marchi dei rispettivi proprietari.</div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
